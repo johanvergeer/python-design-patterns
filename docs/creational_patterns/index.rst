@@ -6,3 +6,4 @@ Creational Patterns
 
     abstract_factory*
     builder*
+    factory_method*

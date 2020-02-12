@@ -1,0 +1,18 @@
+@startuml
+package decorator {
+  interface Troll {
+    + attack_power : int
+    + attack()
+    + flee_battle()
+  }
+  class SimpleTroll {
+  }
+  class ClubbedTroll {
+    + __init__(decorated: Troll)
+  }
+}
+
+ClubbedTroll -->  "_decorated" Troll
+ClubbedTroll ..|> Troll
+SimpleTroll ..|> Troll
+@enduml

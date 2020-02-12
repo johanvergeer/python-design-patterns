@@ -50,18 +50,18 @@ class ClubbedTroll(Troll):
     """Decorator that adds a club for a :py:class:`Troll`"""
 
     def __init__(self, decorated: Troll):
-        self.decorated = decorated
+        self._decorated = decorated
 
     def attack(self):
-        self.decorated.attack()
+        self._decorated.attack()
         print("The troll swings at you with a club!")
 
     @property
     def attack_power(self) -> int:
-        return self.decorated.attack_power + 1
+        return self._decorated.attack_power + 1
 
     def flee_battle(self):
-        self.decorated.flee_battle()
+        self._decorated.flee_battle()
 
 
 if __name__ == "__main__":

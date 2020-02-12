@@ -78,3 +78,7 @@ napoleon_use_param = False
 
 # PLANT UML
 plantuml = f'java -jar {HOME_DIR.absolute() / "workspace" / "plantuml.jar"}'
+
+# SPHINX TODO PLUGIN
+
+todo_emit_warnings = True
