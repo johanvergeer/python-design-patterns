@@ -1,0 +1,64 @@
+@startuml
+package builder {
+  enum Armor {
+    + CHAIN_MAIL
+    + CLOTHES
+    + LEATHER
+    + PLATE_MAIL
+  }
+  enum HairColor {
+    + BLACK
+    + BLOND
+    + BROWN
+    + RED
+    + WHITE
+  }
+  enum HairType {
+    + BALD
+    + CURLY
+    + LONG_CURLY
+    + LONG_STRAIGHT
+    + SHORT
+  }
+  enum Profession {
+    + MAGE
+    + PRIEST
+    + THIEF
+    + WARRIOR
+  }
+  enum Weapon {
+    + AXE
+    + BOW
+    + DAGGER
+    + SWORD
+    + WARHAMMER
+  }
+  class Hero <<dataclass>> {
+    + armor : Armor
+    + hairColor : HairColor
+    + hairType : HairType
+    + name : String
+    + profession : Profession
+    + weapon : Weapon
+  }
+  class HeroBuilder {
+    + __init__(name : str, profession : Profession)
+    + build() : Hero
+    + with_armor(armor : Armor) : HeroBuilder
+    + with_hair_color(hairColor : HairColor) : HeroBuilder
+    + with_hair_type(hairType : HairType) : HeroBuilder
+    + with_weapon(weapon : Weapon) : HeroBuilder
+  }
+}
+Hero -->  "-profession" Profession
+HeroBuilder ..+ Hero
+Hero -->  "_armor" Armor
+HeroBuilder -->  "_hair_color" HairColor
+HeroBuilder -->  "_weapon" Weapon
+HeroBuilder -->  "_hairType" HairType
+Hero -->  "_hairColor" HairColor
+HeroBuilder -->  "_profession" Profession
+Hero -->  "_weapon" Weapon
+Hero -->  "_hairType" HairType
+HeroBuilder -->  "_armor" Armor
+@enduml

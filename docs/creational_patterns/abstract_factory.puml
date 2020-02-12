@@ -1,0 +1,50 @@
+@startuml
+package abstract_factory {
+  enum KingdomType {
+    + ELF
+    + ORC
+  }
+  interface Army {
+    + description : str
+  }
+  interface Castle {
+    + description : str
+  }
+  interface King {
+    + description : str
+  }
+
+  class ElfArmy
+  class ElfCastle
+  class ElfKing
+
+  class OrcArmy
+  class OrcCastle
+  class OrcKing
+
+  interface KingdomFactory {
+    + create_army() : Army
+    + create_castle() : Castle
+    + create_king() : King
+  }
+
+  class ElfKingdomFactory
+  class OrcKingdomFactory
+
+  class Globals <<global_functions>> {
+    + create_kingdom_factory(kingdom_type: KingdomType): KingdomFactory
+  }
+}
+
+ElfArmy ..|> Army
+ElfCastle ..|> Castle
+ElfKing ..|> King
+ElfKingdomFactory ..|> KingdomFactory
+OrcArmy ..|> Army
+OrcCastle ..|> Castle
+OrcKing ..|> King
+OrcKingdomFactory ..|> KingdomFactory
+
+Globals ..> ElfKingdomFactory : creates >
+Globals ..> OrcKingdomFactory : creates >
+@enduml
