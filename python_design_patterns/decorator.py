@@ -21,12 +21,15 @@ from typing_extensions import Protocol
 class Troll(Protocol):
     """Protocol for trolls"""
 
-    def attack(self): ...
+    def attack(self):
+        ...
 
     @property
-    def attack_power(self) -> int: ...
+    def attack_power(self) -> int:
+        ...
 
-    def flee_battle(self): ...
+    def flee_battle(self):
+        ...
 
 
 class SimpleTroll(Troll):
@@ -61,7 +64,7 @@ class ClubbedTroll(Troll):
         self.decorated.flee_battle()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("A simple looking troll approaches.")
     troll = SimpleTroll()
     troll.attack()

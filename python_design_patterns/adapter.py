@@ -27,6 +27,7 @@ class RowingBoat(Protocol):
 
 class FishingBoat:
     """A boat to go fishing"""
+
     def sail(self):
         print("The fishing boat is sailing")
 

@@ -64,3 +64,9 @@ Programmatic Example
 
 .. automodule:: python_design_patterns.builder
     :members:
+
+Credits
+-------
+
+* |gof_dp|
+* |jdp|
