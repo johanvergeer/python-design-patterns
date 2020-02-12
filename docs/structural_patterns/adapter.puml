@@ -1,0 +1,20 @@
+@startuml
+package adapter {
+  class Captain {
+    + __init__(rowing_boat: RowingBoat)
+    ~ row()
+  }
+  ~class FishingBoat {
+    ~ sail()
+  }
+  class FishingBoatAdapter {
+    + row()
+  }
+  interface RowingBoat {
+    + row() {abstract}
+  }
+}
+FishingBoatAdapter -->  "-fishing_boat" FishingBoat
+Captain -->  "-rowing_boat" RowingBoat
+FishingBoatAdapter ..|> RowingBoat
+@enduml

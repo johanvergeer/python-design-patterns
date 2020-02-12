@@ -1,0 +1,33 @@
+@startuml
+
+package composite {
+  class Letter {
+    + __init__(char: str)
+    # print_this_before()
+  }
+  abstract class LetterComposite {
+    + add(letter : LetterComposite)
+    + count() : int
+    + print()
+    # printThisAfter()
+    # printThisBefore()
+  }
+  class Messenger {
+    ~ message_from_elves() : LetterComposite
+    ~ message_from_orcs() : LetterComposite
+  }
+  class Sentence {
+    + Sentence(*words : Word)
+    # print_this_after()
+  }
+  class Word {
+    + from_letters(*letters : Letter)
+    + from_characters(*character: str)
+    # print_this_before()
+  }
+}
+LetterComposite -->  "-children" LetterComposite
+Letter --|> LetterComposite
+Sentence --|> LetterComposite
+Word --|> LetterComposite
+@enduml

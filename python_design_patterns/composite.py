@@ -1,3 +1,14 @@
+"""
+The Composite pattern is a partitioning design pattern. The Composite pattern describes that a
+group of objects is to be treated in the same way as a single instance of an object. The intent
+of a composite is to "compose" objects into tree structures to represent part-whole hierarchies.
+Implementing the Composite pattern lets clients treat individual objects and compositions
+uniformly.
+
+In this example we have sentences composed of words composed of letters. All of the objects
+can be treated through the same interface (:class:`LetterComposite`).
+"""
+
 from abc import ABC
 from typing import List
 
@@ -9,7 +20,7 @@ class LetterComposite(ABC):
     def add(self, letter: "LetterComposite"):
         self._children.append(letter)
 
-    def count(self):
+    def count(self) -> int:
         return len(self._children)
 
     def print_this_before(self):
