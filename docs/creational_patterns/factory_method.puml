@@ -1,0 +1,33 @@
+@startuml
+package factory_method {
+  enum WeaponType {
+    + AXE
+    + SHORT_SWORD
+    + SPEAR
+    + UNDEFINED
+  }
+
+  class Blacksmith <<global_functions>> {
+    + manufacture_elven_weapon(weapon_type: WeaponType) : Weapon
+    + manufacture_orc_weapon(weapon_type: WeaponType) : Weapon
+  }
+
+  abstract class Weapon {
+    + weapon_type : WeaponType
+  }
+
+  class ElfWeapon {
+    + __str__() : str
+  }
+  class OrcWeapon {
+    + __str__() : str
+  }
+}
+ElfWeapon -->  "-weaponType" WeaponType
+OrcWeapon -->  "-weaponType" WeaponType
+ElfWeapon ..|> Weapon
+OrcWeapon ..|> Weapon
+
+Blacksmith ..> ElfWeapon : creates >
+Blacksmith ..> OrcWeapon : creates >
+@enduml
