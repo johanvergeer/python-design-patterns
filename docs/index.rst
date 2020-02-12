@@ -10,7 +10,11 @@ Welcome to Python Design Patterns's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   readme
+   behavioral_patterns/index
+   creational_patterns/index
+   structural_patterns/index
+   authors
 
 Indices and tables
 ==================
