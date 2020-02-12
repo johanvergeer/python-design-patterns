@@ -19,6 +19,7 @@ from typing import Optional, cast
 
 class IvoryTower:
     """Singleton class example"""
+
     _instance: Optional["IvoryTower"] = None
 
     def __new__(cls, *args, **kwargs):

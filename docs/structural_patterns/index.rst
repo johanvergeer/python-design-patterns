@@ -7,3 +7,4 @@ Structural Patterns
     adapter*
     composite*
     decorator*
+    facade*

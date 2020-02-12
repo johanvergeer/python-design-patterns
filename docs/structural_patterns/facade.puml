@@ -1,0 +1,35 @@
+@startuml
+package facade {
+  abstract class DwarvenMineWorker {
+    + name : str {abstract}
+    + wake_up()
+    + go_to_mine()
+    + go_home()
+    + go_to_sleep()
+    + work() {abstract}
+    + action(*actions : Action)
+  }
+  ~enum Action {
+    + GO_HOME
+    + GO_TO_MINE
+    + GO_TO_SLEEP
+    + WAKE_UP
+    + WORK
+  }
+  class DwarvenCartOperator
+  class DwarvenGoldDigger
+  class DwarvenTunnelDigger
+
+  class DwarvenGoldmineFacade {
+    + start_new_day()
+    + dig_out_gold()
+    + end_day()
+    - _perform_actions(workers : List<DwarvenMineWorker>, actions : *Action) {static}
+  }
+}
+DwarvenGoldmineFacade -->  "_workers" DwarvenMineWorker
+Action ..+ DwarvenMineWorker
+DwarvenCartOperator --|> DwarvenMineWorker
+DwarvenGoldDigger --|> DwarvenMineWorker
+DwarvenTunnelDigger --|> DwarvenMineWorker
+@enduml
