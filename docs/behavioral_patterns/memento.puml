@@ -1,0 +1,36 @@
+@startuml
+package memento {
+  enum StarType {
+    + DEAD
+    + RED_GIANT
+    + SUN
+    + SUPERNOVA
+    + UNDEFINED
+    + WHITE_DWARF
+  }
+
+  class Star {
+    + age_years : int
+    + mass_tons : int
+    + star_type : StarType
+    + __init__(start_type: StarType, start_age: int, start_mass: int)
+    + __str__() : str
+    + time_passes()
+    + get_memento() : StarMemento
+    + set_memento(memento : StarMemento)
+  }
+
+  -class StarMementoInternal {
+    + age_years : int
+    + mass_tons : int
+    + star_type : StarType
+    + __init__(star_type: StarType, age_years: int, mass_tons: int)
+  }
+
+  interface StarMemento {
+  }
+}
+
+StarMementoInternal ..+ Star
+StarMementoInternal .up.|> StarMemento
+@enduml
