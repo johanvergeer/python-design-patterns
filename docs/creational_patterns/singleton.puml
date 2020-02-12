@@ -1,0 +1,10 @@
+@startuml
+package singleton {
+  class EnumIvoryTower {
+    - _instance {static}
+    + __new__(*args, **kwargs)
+    + __str__() : str
+  }
+}
+
+@enduml
