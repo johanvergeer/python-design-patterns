@@ -1,0 +1,32 @@
+@startuml
+package observer {
+  enum WeatherType {
+    + COLD
+    + RAINY
+    + SUNNY
+    + WINDY
+  }
+  class Weather {
+    - _current_weather : WeatherType
+    + add_observer(obs : WeatherObserver)
+    + remove_observer(obs : WeatherObserver)
+    + time_passes()
+    - _notify_observers()
+  }
+  class Hobbits {
+    + Hobbits()
+    + update(currentWeather : WeatherType)
+  }
+  class Orcs {
+    + Orcs()
+    + update(currentWeather : WeatherType)
+  }
+  interface WeatherObserver {
+    + update(WeatherType) {abstract}
+  }
+}
+
+Weather -->  "0..* _observers" WeatherObserver
+Hobbits .up.|> WeatherObserver
+Orcs .up.|> WeatherObserver
+@enduml
