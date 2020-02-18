@@ -1,6 +1,6 @@
 import itertools
 from enum import Enum
-from typing import List
+from typing import Set
 
 from typing_extensions import Protocol
 
@@ -25,12 +25,12 @@ class WeatherObserver(Protocol):
 
 class Weather:
     def __init__(self):
-        self._observers: List[WeatherObserver] = []
+        self._observers: Set[WeatherObserver] = set()
         self._current_weather = next(weather_types)
 
     def add_observer(self, observer: WeatherObserver):
         """Adds an observer"""
-        self._observers.append(observer)
+        self._observers.add(observer)
 
     def remove_observer(self, observer: WeatherObserver):
         """Removes an observer"""
