@@ -40,3 +40,9 @@ if __name__ == "__main__":
     print("Black dragon lands before you.")
     slayer.change_strategy(spell_strategy)
     slayer.go_to_battle()
+
+    print("Gold dragon shows up beneath you")
+    slayer.change_strategy(
+        lambda: print("You summon Goku who uses a Kamehameha to destroy the dragon")
+    )
+    slayer.go_to_battle()
